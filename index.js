@@ -29,11 +29,27 @@ const testimonial = (req, res) => {
 };
 
 const addBlog = (req, res) => {
-  const { inputName, inputDescription } = req.body;
+  const {
+    inputName,
+    dateStart,
+    dateEnd,
+    techNode,
+    techGolang,
+    techReact,
+    techJavascript,
+    inputDescription,
+  } = req.body;
 
   const data = {
     title: inputName,
+    startDate: dateStart,
+    endDate: dateEnd,
+    duration: duration(dateStart, dateEnd),
     content: inputDescription,
+    inputNode: techNode,
+    inputGolang: techGolang,
+    inputReact: techReact,
+    inputJavascript: techJavascript,
     image:
       "https://www.howtopython.org/wp-content/uploads/2020/04/laptops_python-1170x780.jpg",
     author: "",
@@ -45,7 +61,7 @@ const addBlog = (req, res) => {
   res.redirect("/");
 };
 
-const blogDetail = (req, res) => {
+const detailBlog = (req, res) => {
   const { id } = req.params;
 
   res.render("project-detail", { data: dataBlog[id] });
@@ -64,12 +80,25 @@ const editBlog = (req, res) => {
 
 const updateBlog = (req, res) => {
   const { id } = req.params;
-  const { inputName, inputStartDate, inputEndDate, inputDescription } =
-    req.body;
+  const projectIndex = dataBlog.findIndex((project) => project.id === id);
+  const {
+    inputName,
+    inputStartDate,
+    inputEndDate,
+    techNode,
+    techGolang,
+    techReact,
+    techJavascript,
+    inputDescription,
+  } = req.body;
   const data = {
     title: inputName,
     startDate: inputStartDate,
     endDate: inputEndDate,
+    inputNode: techNode,
+    inputGolang: techGolang,
+    inputReact: techReact,
+    inputJavascript: techJavascript,
     content: inputDescription,
     author: "Jhin Dae",
     postAt: new Date(),
@@ -77,11 +106,122 @@ const updateBlog = (req, res) => {
       "https://cms.dailysocial.id/wp-content/uploads/2022/10/arpad-czapp-H424WdcQN4Y-unsplash-scaled.jpg",
   };
 
-  // add new data
-  dataBlog.push(data);
-  // delete data
-  dataBlog.splice(data, 1);
   res.redirect("/");
+  // delete data
+  dataBlog.splice(projectIndex, 1, data);
+};
+
+//
+const getFullTime = (time) => {
+  let date = time.getDate();
+
+  let monthIndex = time.getMonth();
+
+  let year = time.getFullYear();
+
+  let hours = time.getHours();
+
+  let minutes = time.getMinutes();
+
+  let month;
+  switch (monthIndex) {
+    case 1:
+      month = "Jan";
+      break;
+    case 2:
+      month = "Feb";
+      break;
+    case 3:
+      month = "Mar";
+      break;
+    case 4:
+      month = "Apr";
+      break;
+    case 5:
+      month = "May";
+      break;
+    case 6:
+      month = "Jun";
+      break;
+    case 7:
+      month = "Jul";
+      break;
+    case 8:
+      month = "Aug";
+      break;
+    case 9:
+      month = "Sep";
+      break;
+    case 10:
+      month = "Oct";
+      break;
+    case 11:
+      month = "Nov";
+      break;
+    case 12:
+      month = "Dec";
+      break;
+  }
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  } else if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+
+  return `${date} ${month} ${year} ${hours}:${minutes} WIB`;
+};
+
+const getDistance = (time) => {
+  let timeNow = new Date();
+  let timePost = time;
+
+  let distance = timeNow - timePost;
+
+  let milisecond = 1000;
+  let secondInHours = 3600;
+  let hoursInDays = 24;
+
+  let distanceDay = Math.floor(
+    distance / (milisecond * secondInHours * hoursInDays)
+  );
+  let distanceHours = Math.floor(distance / (milisecond * 60 * 60));
+  let distanceMinutes = Math.floor(distance / (milisecond * 60));
+  let distanceSecond = Math.floor(distance / milisecond);
+
+  if (distanceDay > 0) {
+    return `${distanceDay} days ago`;
+  } else if (distanceHours > 0) {
+    return `${distanceHours} hours ago`;
+  } else if (distanceMinutes > 0) {
+    return `${distanceMinutes} minutes ago`;
+  } else {
+    return `${distanceSecond} seconds ago`;
+  }
+};
+
+const duration = (startDate, endDate) => {
+  let start = new Date(startDate);
+  let end = new Date(endDate);
+
+  let times = end.getTime() - start.getTime();
+  let milisecond = 1000;
+  let secondInHours = 3600;
+  let hoursInDays = 24;
+  let days = times / (milisecond * secondInHours * hoursInDays);
+  let weeks = Math.floor(days / 7);
+  let months = Math.floor(weeks / 4);
+  let years = Math.floor(months / 12);
+
+  if (years > 0) {
+    return `${years} Tahun`;
+  } else if (months > 0) {
+    return `${months} Bulan`;
+  } else if (weeks > 0) {
+    return `${weeks} Minggu`;
+  } else {
+    return `${days} Hari`;
+  }
 };
 
 // rounting
@@ -90,7 +230,7 @@ app.get("/", home);
 app.get("/blog", blog);
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
-app.get("/blogDetail/:id", blogDetail);
+app.get("/blogDetail/:id", detailBlog);
 app.get("/deleteBlog/:id", deleteBlog);
 app.get("/editBlog/:id", editBlog);
 

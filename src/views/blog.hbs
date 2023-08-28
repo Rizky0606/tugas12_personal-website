@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Add Blog</title>
     <link rel="stylesheet" href="./../style/blog.css" />
     <!-- fontawesome -->
     <script
@@ -96,12 +96,22 @@
 
             <div class="row">
               <div class="col">
-                <label for="date-start" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="date-start" />
+                <label for="dateStart" class="form-label">Start Date</label>
+                <input
+                  type="date"
+                  name="dateStart"
+                  class="form-control"
+                  id="dateStart"
+                />
               </div>
               <div class="col">
-                <label for="date-end" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="date-end" />
+                <label for="dateEnd" class="form-label">End Date</label>
+                <input
+                  type="date"
+                  name="dateEnd"
+                  class="form-control"
+                  id="dateEnd"
+                />
               </div>
             </div>
 
@@ -126,8 +136,7 @@
                   class="form-checkbox"
                   id="techNode"
                   type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
+                  name="techNode"
                 />
                 <label class="form-check-label" for="techNode">
                   Node JS
@@ -137,13 +146,12 @@
               <div class="form-check">
                 <input
                   class="form-checkbox"
-                  id="techNext"
+                  id="techGolang"
                   type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
+                  name="techGolang"
                 />
-                <label class="form-check-label" for="techNext">
-                  Next JS
+                <label class="form-check-label" for="techGolang">
+                  Golang
                 </label>
               </div>
 
@@ -152,8 +160,7 @@
                   class="form-checkbox"
                   id="techReact"
                   type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
+                  name="techReact"
                 />
                 <label class="form-check-label" for="techReact">
                   React JS
@@ -163,20 +170,24 @@
               <div class="form-check">
                 <input
                   class="form-checkbox"
-                  id="techTypescript"
+                  id="techJavascript"
                   type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
+                  name="techJavascript"
                 />
-                <label class="form-check-label" for="techTypescript">
-                  Typescript
+                <label class="form-check-label" for="techJavascript">
+                  Javascript
                 </label>
               </div>
             </div>
 
             <div class="mb-3 mt-3">
               <label for="input-file" class="form-label">Upload Image</label>
-              <input class="form-control" type="file" id="input-file" />
+              <input
+                class="form-control"
+                name="inputFile"
+                type="file"
+                id="inputFile"
+              />
             </div>
 
             <div class="d-flex justify-content-end mt-4">

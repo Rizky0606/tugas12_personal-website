@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Detail Blog</title>
     <link rel="stylesheet" href="./../style/project-detail.css" />
     <!-- google fonts -->
     <link
@@ -95,11 +95,13 @@
               <div class="date">
                 <div>
                   <i class="fa-regular fa-calendar" style="color: #000000"> </i>
-                  {{data.postAt}}
+                  {{data.startDate}}
+                  -
+                  {{data.endDate}}
                 </div>
                 <div>
                   <i class="fa-regular fa-clock" style="color: #000000"></i>
-                  1 month
+                  {{data.duration}}
                 </div>
               </div>
             </div>
@@ -107,28 +109,28 @@
             {{! technologies }}
             <div class="technologies">
               <h2 class="fw-bold pt-5">Technologies</h2>
-              <table>
-                <tr>
-                  <td>
-                    <i class="fa-brands fa-react" style="color: #000000"></i>
-                  </td>
-                  <td>React Js</td>
-                  <td>
-                    <i class="fa-brands fa-node" style="color: #000000"></i>
-                  </td>
-                  <td>Node Js</td>
-                </tr>
-                <tr>
-                  <td>
-                    <i class="fa-brands fa-js" style="color: #000000"></i>
-                  </td>
-                  <td>JavaScript</td>
-                  <td>
-                    <i class="fa-brands fa-golang" style="color: #000000"></i>
-                  </td>
-                  <td>Golang</td>
-                </tr>
-              </table>
+              {{#if data.inputNode}}
+                <p><i class="fa-brands fa-node" style="color: #000000"></i>Node
+                  JS</p>
+              {{/if}}
+              {{#if data.inputGolang}}
+                <p><i
+                    class="fa-brands fa-golang"
+                    style="color: #000000"
+                  ></i>Golang</p>
+              {{/if}}
+              {{#if data.inputReact}}
+                <p><i
+                    class="fa-brands fa-react"
+                    style="color: #000000"
+                  ></i>React JS</p>
+              {{/if}}
+              {{#if data.inputJavascript}}
+                <p><i
+                    class="fa-brands fa-js"
+                    style="color: #000000"
+                  ></i>Javascript</p>
+              {{/if}}
             </div>
           </div>
         </div>

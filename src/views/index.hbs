@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Personal Website</title>
     <link rel="stylesheet" href="./../style/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,8 +77,8 @@
     </header>
 
     <main>
-      <div class="bg-secondary text-black h-100">
-        <div class="container d-flex pt-5 bg-secondary-subtle ps-5">
+      <div class="bg-secondary text-black h-75" style="padding-top: 90px;">
+        <div class="container d-flex pt-5 bg-secondary-subtle ps-5 rounded">
           <div class="left w-50">
             <h2 class="fw-bold fs-3">Hi Welcome to my hut</h2>
             <p class="fs-5 pt-3">
@@ -165,9 +165,30 @@
                     {{this.content}}
                   </p>
                   <div class="fs-3 mb-3">
-                    <i class="fa-brands fa-js" style="color: #000000"></i>
-                    <i class="fa-brands fa-react" style="color: #000000"></i>
-                    <i class="fa-brands fa-node" style="color: #000000"></i>
+
+                    {{#if this.inputNode}}
+                      <i class="fa-brands fa-node" style="color: #000000"></i>
+                    {{else}}
+
+                    {{/if}}
+                    {{#if this.inputGolang}}
+                      <i
+                        class="fa-brands fa-golang"
+                        style="color: #000000;"
+                      ></i>
+                    {{else}}
+
+                    {{/if}}
+                    {{#if this.inputReact}}
+                      <i class="fa-brands fa-react" style="color: #000000;"></i>
+                    {{else}}
+
+                    {{/if}}
+                    {{#if this.inputJavascript}}
+                      <i class="fa-brands fa-js" style="color: #000000;"></i>
+                    {{else}}
+
+                    {{/if}}
                   </div>
                   <a href="/editBlog/{{@index}}" class="btn btn-dark">Edit</a>
                   <a

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Edit Blog</title>
     <link rel="stylesheet" href="./../style/blog.css" />
     <!-- fontawesome -->
     <script
@@ -115,30 +115,30 @@
             <div>
               <label class="form-label">Technologies</label>
               <div class="form-check">
-                <input class="form-checkbox" id="techNode" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-checkbox" id="techNode" type="checkbox"  name="techNode" {{#if data.inputNode}} checked {{/if}} >
                 <label class="form-check-label" for="techNode">
                   Node JS
                 </label>
               </div>
     
               <div class="form-check">
-                <input class="form-checkbox" id="techNext" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="techNext">
-                  Next JS
+                <input class="form-checkbox" id="techGolang" type="checkbox" name="techGolang" {{#if data.inputGolang}} checked {{/if}} >
+                <label class="form-check-label" for="techGolang">
+                  Golang
                 </label>
               </div>
     
               <div class="form-check">
-                <input class="form-checkbox" id="techReact" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-checkbox" id="techReact" type="checkbox" name="techReact" {{#if data.inputReact}} checked {{/if}} >
                 <label class="form-check-label" for="techReact">
                   React JS
                 </label>
               </div>
     
               <div class="form-check">
-                <input class="form-checkbox" id="techTypescript" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="techTypescript">
-                  Typescript
+                <input class="form-checkbox" id="techJavascript" type="checkbox" name="techJavascript" {{#if data.inputJavascript}} checked {{/if}} >
+                <label class="form-check-label" for="techJavascript">
+                  Javascript
                 </label>
               </div>
             </div>
@@ -157,11 +157,11 @@
         </form>
       </div>
 
-      <div class="my-project">
+      {{!-- <div class="my-project">
         <h1 align="center">MY PROJECT</h1>
         <div id="card-project" class="card-project">
           
-      </div>
+      </div> --}}
     </main>
 
     <script src="js/blog.js"></script>
