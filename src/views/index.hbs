@@ -77,7 +77,10 @@
     </header>
 
     <main>
-      <div class="bg-secondary text-black h-75" style="padding-top: 90px;">
+      <div
+        class="bg-secondary text-black"
+        style="padding-top: 90px; height: 700px"
+      >
         <div class="container d-flex pt-5 bg-secondary-subtle ps-5 rounded">
           <div class="left w-50">
             <h2 class="fw-bold fs-3">Hi Welcome to my hut</h2>
@@ -150,6 +153,10 @@
           {{#each dataBlog}}
             <div class="col">
               <div class="card">
+                <p
+                  style="position: absolute; background-color: white; width: 150px; padding: 5px;
+                        border-radius: 5px; margin: 8px; font-size: 12px;"
+                >{{this.fullTime}}</p>
                 <img
                   src="{{this.image}}"
                   class="card-img-top"

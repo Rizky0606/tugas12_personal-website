@@ -39,7 +39,7 @@ const addBlog = (req, res) => {
     techJavascript,
     inputDescription,
   } = req.body;
-
+  const dateNow = new Date();
   const data = {
     title: inputName,
     startDate: dateStart,
@@ -50,6 +50,8 @@ const addBlog = (req, res) => {
     inputGolang: techGolang,
     inputReact: techReact,
     inputJavascript: techJavascript,
+    fullTime: getFullTime(dateNow),
+    author: "Rizky Fauzi Ardiansyah",
     image:
       "https://www.howtopython.org/wp-content/uploads/2020/04/laptops_python-1170x780.jpg",
     author: "",
@@ -91,24 +93,27 @@ const updateBlog = (req, res) => {
     techJavascript,
     inputDescription,
   } = req.body;
+  const dateNow = new Date();
   const data = {
     title: inputName,
     startDate: inputStartDate,
     endDate: inputEndDate,
+    duration: duration(inputStartDate, inputEndDate),
+    content: inputDescription,
     inputNode: techNode,
     inputGolang: techGolang,
     inputReact: techReact,
     inputJavascript: techJavascript,
-    content: inputDescription,
-    author: "Jhin Dae",
+    fullTime: getFullTime(dateNow),
+    author: "Rizky Fauzi Ardiansyah",
     postAt: new Date(),
     image:
       "https://cms.dailysocial.id/wp-content/uploads/2022/10/arpad-czapp-H424WdcQN4Y-unsplash-scaled.jpg",
   };
-
+  dataBlog.push(data);
   res.redirect("/");
   // delete data
-  dataBlog.splice(projectIndex, 1, data);
+  dataBlog.splice(projectIndex, 1);
 };
 
 //

@@ -13,6 +13,7 @@ const dataBlog = [
     inputJavascript: false,
     duration: "1 Minggu",
     postAt: new Date(),
+    fullTime: "28 Jul 2023 13:28 WIB",
     image:
       "https://cms.dailysocial.id/wp-content/uploads/2022/10/arpad-czapp-H424WdcQN4Y-unsplash-scaled.jpg",
   },
@@ -29,6 +30,7 @@ const dataBlog = [
     inputJavascript: false,
     duration: "2 Minggu",
     postAt: new Date(),
+    fullTime: "01 Aug 2023 06:04 WIB",
     image:
       "https://www.howtopython.org/wp-content/uploads/2020/04/laptops_python-1170x780.jpg",
   },
@@ -45,6 +47,7 @@ const dataBlog = [
     inputJavascript: true,
     duration: "1 Bulan",
     postAt: new Date(),
+    fullTime: "15 Jan 2023 18:22 WIB",
     image:
       "https://badoystudio.com/wp-content/uploads/2020/05/contoh-html.jpeg",
   },

@@ -109,32 +109,36 @@
             {{! technologies }}
             <div class="technologies">
               <h2 class="fw-bold pt-5">Technologies</h2>
-              {{#if data.inputNode}}
-                <p><i class="fa-brands fa-node" style="color: #000000"></i>Node
-                  JS</p>
-              {{/if}}
-              {{#if data.inputGolang}}
-                <p><i
-                    class="fa-brands fa-golang"
-                    style="color: #000000"
-                  ></i>Golang</p>
-              {{/if}}
-              {{#if data.inputReact}}
-                <p><i
-                    class="fa-brands fa-react"
-                    style="color: #000000"
-                  ></i>React JS</p>
-              {{/if}}
-              {{#if data.inputJavascript}}
-                <p><i
-                    class="fa-brands fa-js"
-                    style="color: #000000"
-                  ></i>Javascript</p>
-              {{/if}}
+              <div class="fs-5">
+                {{#if data.inputNode}}
+                  <p><i
+                      class="fa-brands fa-node"
+                      style="color: #000000"
+                    ></i>Node JS</p>
+                {{/if}}
+                {{#if data.inputGolang}}
+                  <p><i
+                      class="fa-brands fa-golang"
+                      style="color: #000000"
+                    ></i>Golang</p>
+                {{/if}}
+                {{#if data.inputReact}}
+                  <p><i
+                      class="fa-brands fa-react"
+                      style="color: #000000"
+                    ></i>React JS</p>
+                {{/if}}
+                {{#if data.inputJavascript}}
+                  <p><i
+                      class="fa-brands fa-js"
+                      style="color: #000000"
+                    ></i>Javascript</p>
+                {{/if}}
+              </div>
             </div>
           </div>
         </div>
-        <div class="text-content mt-3">
+        <div class="text-content mt-3 fs-3">
           <p style="text-align: justify">
             {{data.content}}
           </p>
